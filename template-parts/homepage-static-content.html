@@ -1,0 +1,50 @@
+<p class="center-text">Mai sunt</p>
+<div id="countdown">
+    <div class="box-zile">
+        <div id="zile">00</div><span>zile</span>
+    </div>
+    <div class="box-ore">
+        <div id="ore">00</div><span>ore</span>
+    </div>
+    <div class="box-minute">
+        <div id="minute">00</div><span>minute</span>
+    </div>
+    <div class="box-secunde">
+        <div id="secunde">00</div><span>secunde</span>
+    </div>
+</div>
+<p class="center-text">pana la lansare !</p>
+<br>
+<p class="center-text">Toate anunturile</p>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 10, 2023 22:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var durata = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var zile = Math.floor(durata / (1000 * 60 * 60 * 24));
+  var ore = Math.floor((durata % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minute = Math.floor((durata % (1000 * 60 * 60)) / (1000 * 60));
+  var secunde = Math.floor((durata % (1000 * 60)) / 1000);
+
+  // Display the result in the elements
+  document.getElementById("zile").innerHTML = zile
+  document.getElementById("ore").innerHTML = ore
+  document.getElementById("minute").innerHTML = minute
+  document.getElementById("secunde").innerHTML = secunde
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
